@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Jenkins with OIDC + Matrix Authorization"
+  systemMessage: "Jenkins with OIDC + Matrix Auth (official syntax)"
 
   securityRealm:
     oic:
@@ -15,7 +15,7 @@ jenkins:
 
   authorizationStrategy:
     globalMatrix:
-      permissions:
+      grantedPermissions:
         - "Overall/Administer:authenticated"
         - "Overall/Read:authenticated"
         - "Job/Build:authenticated"
