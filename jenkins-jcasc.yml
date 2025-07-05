@@ -3,28 +3,31 @@ jenkins:
 
   securityRealm:
     oic:
+      # 1) Endpoint discovery via .well-known
+      serverConfiguration:
+        wellKnown:
+          wellKnownOpenIDConfigurationUrl: "http://172.31.92.191:8080/realms/jenkins/.well-known/openid-configuration"
+          # Optional: override scopes if needed
+          # scopesOverride: "openid profile email groups"
+
+      # 2) Client credentials
       clientId: "jenkins"
       clientSecret: "rwe6YrlKwe4l2gBBzLodC92VfxgXKpQm"
-      wellKnownOpenIDConfigurationUrl: "http://172.31.92.191:8080/realms/jenkins/.well-known/openid-configuration"
-      logoutFromOpenidProvider: true
-      disableSslVerification: true
-      escapeHatchEnabled: true
+
+      # 3) Claim mappings
       userNameField: "preferred_username"
+      fullNameFieldName: "name"
+      emailFieldName: "email"
       groupsFieldName: "groups"
 
-  authorizationStrategy:
-    roleBased:
-      roles:
-        global:
-          - name: "admin"
-            description: "Jenkins Administrators"
-            permissions:
-              - "Overall/Administer"
-            entries:
-              - group: "Jenkins-admin"
-          - name: "read-only"
-            description: "Jenkins Read-Only Users"
-            permissions:
-              - "Overall/Read"
-            entries:
-              - group: "Jenkins-read-only"
+      # 4) Advanced settings
+      disableSslVerification: true
+      logoutFromOpenidProvider: true
+      escapeHatchEnabled: true
+      # postLogoutRedirectUrl: "http://…"
+      # sendScopesInTokenRequest: false
+      # pkceEnabled: true
+      # nonceDisabled: false
+      # disableTokenVerification: false
+      # tokenExpirationCheckDisabled: true
+      # allowTokenAccessWithoutOicSession: false
