@@ -1,5 +1,6 @@
 jenkins:
   systemMessage: "Jenkins + Keycloak OIDC + RBAC"
+
   securityRealm:
     oic:
       clientId: "jenkins"
@@ -14,16 +15,15 @@ jenkins:
   authorizationStrategy:
     roleBased:
       roles:
-        global:
-          - name: "admin"
-            description: "Admins have full control"
-            permissions:
-              - "Overall/Administer"
-            assignments:
-              - "Jenkins-admin"
-          - name: "read-only"
-            description: "Read-only users"
-            permissions:
-              - "Overall/Read"
-            assignments:
-              - "Jenkins-read-only"
+        - name: "admin"
+          description: "Admins have full control"
+          permissions:
+            - "Overall/Administer"
+          assignments:
+            - "Jenkins-admin"
+        - name: "read-only"
+          description: "Read-only users"
+          permissions:
+            - "Overall/Read"
+          assignments:
+            - "Jenkins-read-only"
