@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "OIDC + Matrix - FINAL STRUCTURE ✅"
+  systemMessage: "OIDC + Matrix Auth FINAL ✅"
 
   securityRealm:
     oic:
