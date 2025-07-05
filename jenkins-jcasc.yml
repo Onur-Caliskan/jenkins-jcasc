@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Jenkins with OIDC + Matrix Auth (official syntax)"
+  systemMessage: "Jenkins OIDC + Matrix Auth - advanced entries"
 
   securityRealm:
     oic:
@@ -14,9 +14,18 @@ jenkins:
       groupsFieldName: "groups"
 
   authorizationStrategy:
-    globalMatrix:
-      grantedPermissions:
-        - "Overall/Administer:authenticated"
-        - "Overall/Read:authenticated"
-        - "Job/Build:authenticated"
-        - "Job/Read:authenticated"
+    projectMatrix:
+      entries:
+        - group:
+            name: authenticated
+            permissions:
+              - Overall/Read
+              - Overall/Administer
+              - Job/Build
+              - Job/Configure
+              - Job/Read
+
+        - user:
+            name: anonymous
+            permissions:
+              - Overall/Read
