@@ -1,6 +1,5 @@
 jenkins:
   systemMessage: "Jenkins + Keycloak OIDC + RBAC"
-
   securityRealm:
     oic:
       clientId: "jenkins"
@@ -11,7 +10,6 @@ jenkins:
       escapeHatchEnabled: true
       userNameField: "preferred_username"
       groupsFieldName: "groups"
-
   authorizationStrategy:
     roleBased:
       roles:
