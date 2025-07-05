@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Jenkins with OIDC + Matrix Auth"
+  systemMessage: "Jenkins with OIDC + Matrix Authorization"
 
   securityRealm:
     oic:
