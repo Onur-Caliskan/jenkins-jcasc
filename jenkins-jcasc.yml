@@ -1,11 +1,12 @@
 jenkins:
-  systemMessage: "Jenkins with OIDC + Matrix Authorization"
+  systemMessage: "Jenkins with OIDC + Matrix Auth"
 
   securityRealm:
     oic:
       clientId: "jenkins"
       clientSecret: "${OIDC_CLIENT_SECRET}"
-      wellKnownOpenIDConfigurationUrl: "http://172.31.92.192/realms/jenkins/.well-known/openid-configuration"
+      serverConfiguration:
+        wellKnownOpenIDConfigurationUrl: "http://172.31.92.192/realms/jenkins/.well-known/openid-configuration"
       logoutFromOpenidProvider: true
       disableSslVerification: true
       escapeHatchEnabled: true
