@@ -20,14 +20,11 @@ jenkins:
             pattern: ".*"
             permissions:
               - "Overall/Administer"
+            assignments:
+              - "Jenkins-admin"
           - name: "read-only"
             pattern: ".*"
             permissions:
               - "Overall/Read"
-      assignments:
-        - role: "admin"
-          users:
-            - "Jenkins-admin"
-        - role: "read-only"
-          users:
-            - "Jenkins-read-only"
+            assignments:
+              - "Jenkins-read-only"
