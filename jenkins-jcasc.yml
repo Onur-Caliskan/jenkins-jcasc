@@ -1,6 +1,5 @@
 jenkins:
   systemMessage: "Jenkins + Keycloak OIDC + RBAC"
-
   securityRealm:
     oic:
       clientId: "jenkins"
