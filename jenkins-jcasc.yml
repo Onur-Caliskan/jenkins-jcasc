@@ -10,9 +10,10 @@ jenkins:
       escapeHatchEnabled: true
       userNameField: "preferred_username"
       groupsFieldName: "groups"
+
   authorizationStrategy:
     roleBased:
-      roles:
+      globalRoles:
         - name: "admin"
           description: "Admins have full control"
           permissions:
