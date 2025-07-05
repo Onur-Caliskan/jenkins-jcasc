@@ -17,10 +17,14 @@ jenkins:
       roles:
         global:
           - name: "admin"
-            pattern: "Jenkins-admin"
+            description: "Jenkins Administrators"
             permissions:
               - "Overall/Administer"
+            entries:
+              - group: "Jenkins-admin"
           - name: "read-only"
-            pattern: "Jenkins-read-only"
+            description: "Jenkins Read-Only Users"
             permissions:
               - "Overall/Read"
+            entries:
+              - group: "Jenkins-read-only"
