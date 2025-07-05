@@ -1,0 +1,29 @@
+jenkins:
+  systemMessage: "Jenkins + Keycloak OIDC + RBAC"
+  securityRealm:
+    oic:
+      clientId: "jenkins"
+      clientSecret: "rwe6YrlKwe4l2gBBzLodC92VfxgXKpQm"
+      wellKnownOpenIDConfigurationUrl: "http://172.31.92.191:8080/realms/jenkins/.well-known/openid-configuration"
+      logoutFromOpenidProvider: true
+      disableSslVerification: true
+      escapeHatchEnabled: true
+      userNameField: "preferred_username"
+      groupsFieldName: "groups"
+
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            description: "Admins have full control"
+            permissions:
+              - "Overall/Administer"
+            assignments:
+              - "Jenkins-admin"
+          - name: "read-only"
+            description: "Read-only users"
+            permissions:
+              - "Overall/Read"
+            assignments:
+              - "Jenkins-read-only"
