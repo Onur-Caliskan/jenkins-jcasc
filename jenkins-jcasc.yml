@@ -3,12 +3,11 @@ jenkins:
 
   securityRealm:
     oic:
-      # 1) Endpoint discovery via .well-known
+      # 1) Automatic discovery via .well-known endpoint
       serverConfiguration:
         wellKnown:
           wellKnownOpenIDConfigurationUrl: "http://172.31.92.191:8080/realms/jenkins/.well-known/openid-configuration"
-          # Optional: override scopes if needed
-          # scopesOverride: "openid profile email groups"
+          scopesOverride: "openid email profile groups"
 
       # 2) Client credentials
       clientId: "jenkins"
@@ -20,14 +19,7 @@ jenkins:
       emailFieldName: "email"
       groupsFieldName: "groups"
 
-      # 4) Advanced settings
+      # 4) Advanced flags
       disableSslVerification: true
       logoutFromOpenidProvider: true
       escapeHatchEnabled: true
-      # postLogoutRedirectUrl: "http://…"
-      # sendScopesInTokenRequest: false
-      # pkceEnabled: true
-      # nonceDisabled: false
-      # disableTokenVerification: false
-      # tokenExpirationCheckDisabled: true
-      # allowTokenAccessWithoutOicSession: false
