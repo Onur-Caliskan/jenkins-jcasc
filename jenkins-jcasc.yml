@@ -3,23 +3,30 @@ jenkins:
 
   securityRealm:
     oic:
-      # 1) Automatic discovery via .well-known endpoint
       serverConfiguration:
         wellKnown:
           wellKnownOpenIDConfigurationUrl: "http://172.31.92.191:8080/realms/jenkins/.well-known/openid-configuration"
-          scopesOverride: "openid email profile groups"
-
-      # 2) Client credentials
       clientId: "jenkins"
       clientSecret: "rwe6YrlKwe4l2gBBzLodC92VfxgXKpQm"
-
-      # 3) Claim mappings
       userNameField: "preferred_username"
       fullNameFieldName: "name"
       emailFieldName: "email"
       groupsFieldName: "groups"
-
-      # 4) Advanced flags
       disableSslVerification: true
       logoutFromOpenidProvider: true
       escapeHatchEnabled: true
+
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            description: "Jenkins Admins"
+            pattern: "Jenkins-admin"
+            permissions:
+              - "Overall/Administer"
+          - name: "read-only"
+            description: "Jenkins Read Only"
+            pattern: "Jenkins-read-only"
+            permissions:
+              - "Overall/Read"
