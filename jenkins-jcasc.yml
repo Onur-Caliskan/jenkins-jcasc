@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Jenkins OIDC + Matrix Auth - FINAL ✅"
+  systemMessage: "OIDC + Matrix - FINAL STRUCTURE ✅"
 
   securityRealm:
     oic:
@@ -7,10 +7,11 @@ jenkins:
       clientSecret: "${OIDC_CLIENT_SECRET}"
 
       serverConfiguration:
-        authorizationEndpoint: "http://172.31.92.192/realms/jenkins/protocol/openid-connect/auth"
-        tokenEndpoint: "http://172.31.92.192/realms/jenkins/protocol/openid-connect/token"
-        userInfoEndpoint: "http://172.31.92.192/realms/jenkins/protocol/openid-connect/userinfo"
-        jwksUri: "http://172.31.92.192/realms/jenkins/protocol/openid-connect/certs"
+        manual:
+          authorizationEndpoint: "http://172.31.92.192/realms/jenkins/protocol/openid-connect/auth"
+          tokenEndpoint: "http://172.31.92.192/realms/jenkins/protocol/openid-connect/token"
+          userInfoEndpoint: "http://172.31.92.192/realms/jenkins/protocol/openid-connect/userinfo"
+          jwksUri: "http://172.31.92.192/realms/jenkins/protocol/openid-connect/certs"
 
       logoutFromOpenidProvider: true
       disableSslVerification: true
