@@ -16,9 +16,8 @@ jenkins:
             entries:
               - "bob"
 
-  # CHANGED: Use 'openidConnect' instead of 'oic'
   securityRealm:
-    openidConnect:  # Corrected key name
+    oidc:  # Changed to 'oidc' which is the most common key
       clientId: "jenkins"
       clientSecret: "sTYTUeuGu1yr6aqPlCvPlCKzKGle3D6Q"
       wellKnownOpenIDConfigurationUrl: "http://192.168.1.8:32001/realms/jenkins/.well-known/openid-configuration"
@@ -28,7 +27,6 @@ jenkins:
       userNameField: "preferred_username"
       groupsFieldName: "groups"
 
-  # Rest of the configuration remains unchanged
   clouds:
     - kubernetes:
         containerCap: 10
@@ -81,16 +79,16 @@ jenkins:
   myViewsTabBar: "standard"
 
   nodeMonitors:
-    - "architecture"
-    - "clock"
+    - architecture: {}
+    - clock: {}
     - diskSpace:
         freeSpaceThreshold: "1GiB"
         freeSpaceWarningThreshold: "2GiB"
-    - "swapSpace"
+    - swapSpace: {}
     - tmpSpace:
         freeSpaceThreshold: "1GiB"
         freeSpaceWarningThreshold: "2GiB"
-    - "responseTime"
+    - responseTime: {}
 
   numExecutors: 0
 
