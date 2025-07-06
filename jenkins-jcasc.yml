@@ -1,3 +1,6 @@
+plugins:
+  - id: "oidc-auth"
+
 jenkins:
   authorizationStrategy:
     roleBased:
