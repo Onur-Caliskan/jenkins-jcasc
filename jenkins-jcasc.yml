@@ -1,6 +1,3 @@
-plugins:
-  - id: "oidc-auth"
-
 jenkins:
   authorizationStrategy:
     roleBased:
@@ -11,13 +8,13 @@ jenkins:
             permissions:
               - "Overall/Administer"
             entries:
-              - user: "alice"
+              - "alice"
           - name: "readonly"
             description: "Read-only users"
             permissions:
               - "Overall/Read"
             entries:
-              - user: "bob"
+              - "bob"
 
   securityRealm:
     oic:
