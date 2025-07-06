@@ -16,8 +16,9 @@ jenkins:
             entries:
               - "bob"
 
+  # CHANGED: Use 'openidConnect' instead of 'oic'
   securityRealm:
-    oic:
+    openidConnect:  # Corrected key name
       clientId: "jenkins"
       clientSecret: "sTYTUeuGu1yr6aqPlCvPlCKzKGle3D6Q"
       wellKnownOpenIDConfigurationUrl: "http://192.168.1.8:32001/realms/jenkins/.well-known/openid-configuration"
@@ -27,6 +28,7 @@ jenkins:
       userNameField: "preferred_username"
       groupsFieldName: "groups"
 
+  # Rest of the configuration remains unchanged
   clouds:
     - kubernetes:
         containerCap: 10
