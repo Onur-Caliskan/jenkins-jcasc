@@ -7,16 +7,14 @@ jenkins:
             description: "Admins can do anything"
             permissions:
               - "Overall/Administer"
-            grantedRoles:
-              users:
-                - "alice"
+            entries:
+              - user: "alice"
           - name: "readonly"
             description: "Read-only users"
             permissions:
               - "Overall/Read"
-            grantedRoles:
-              users:
-                - "bob"
+            entries:
+              - user: "bob"
 
   securityRealm:
     oic:
@@ -65,16 +63,21 @@ jenkins:
         slaveConnectTimeout: 100
         slaveConnectTimeoutStr: "100"
         yamlMergeStrategy: "override"
+
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: true
+
   disableRememberMe: false
+
   labelAtoms:
   - name: "built-in"
   - name: "jenkins-jenkins-agent"
+
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
+
   nodeMonitors:
   - "architecture"
   - "clock"
@@ -86,23 +89,31 @@ jenkins:
       freeSpaceThreshold: "1GiB"
       freeSpaceWarningThreshold: "2GiB"
   - "responseTime"
+
   numExecutors: 0
+
   primaryView:
     all:
       name: "all"
+
   projectNamingStrategy: "standard"
   quietPeriod: 5
+
   remotingSecurity:
     enabled: true
+
   scmCheckoutRetryCount: 0
   slaveAgentPort: 50000
+
   updateCenter:
     sites:
     - id: "default"
       url: "https://updates.jenkins.io/update-center.json"
+
   views:
   - all:
       name: "all"
+
   viewsTabBar: "standard"
 
 globalCredentialsConfiguration:
